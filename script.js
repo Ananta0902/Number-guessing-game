@@ -1,22 +1,16 @@
-//guess game
 const range=prompt("enter max number");
 const random=Math.floor(Math.random()*range);
-console.log(random);
-let guess=prompt("enter your guess between 1 to range");
-while(true){
-     if(guess=="quit"){
-          console.log("game quitted");
-          break;
-     }
-     if(guess==random){
-          console.log("correct guess",random);
-          break;
-     }
-     else if(guess<random){
-       guess=prompt("guess was too small,enter again")
-     }
-     else{
-       guess=prompt("guess was too large,enter again")
-     }
-}
+document.getElementById("range-display").innerText=`The maximum range is between 0 to ${range}`;
+ function checkGuess() {
+      const guess = Number(document.getElementById("guess").value);
+      const result = document.getElementById("result");
+      if (guess === random) {
+        result.innerText = `Correct! The number was ${random}`;
+      } else if (guess < random) {
+        result.innerText = "Too low! Try again.";
+      } else {
+        result.innerText = "Too high! Try again.";
+      }
+    }
+
 
